@@ -18,12 +18,12 @@ passport.use(
           if (user) {
             return cb(null, user);
           } else {
-            const newStudent = new User({
+            const newUser = new User({
               name: profile.displayName,
               email: profile.emails[0].value,
               googleId: profile.id,
             });
-            newStudent
+            newUser
               .save()
               .then(() => cb(null, newUser))
               .catch((err) => cb(err));

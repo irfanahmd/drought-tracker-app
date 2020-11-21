@@ -13,3 +13,11 @@ a {
   height: 200px;
   padding-top: 20px;
 }
+
+#icons {
+  text-align: right;
+}
+
+.hide {
+  display: hide;
+}

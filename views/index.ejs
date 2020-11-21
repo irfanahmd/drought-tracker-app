@@ -56,6 +56,33 @@
       </li>
     </ul>
 
+    <div>
+      <table>
+        <% farms.forEach(function(farm){%> <% if (user &&
+        user._id.equals(farm.user[0]._id)) { %>
+
+        <tr>
+          <td><%=farm.farmName%></td>
+          <td id="icons">
+            <button class="editButton">
+              <i class="small material-icons">mode_edit</i>
+            </button>
+
+            <i class="small material-icons">delete</i>
+          </td>
+        </tr>
+        <tr class="hide">
+          <td colspan="2">
+            <form action="/farms/<%= farm._id %>?_method=PUT" method="POST">
+              <input type="text" name="farmName" value="<%=farm.farmName%>" />
+              <button type="submit">Update</button>
+            </form>
+          </td>
+        </tr>
+        <% } %> <% }) %>
+      </table>
+    </div>
+
     <div class="card-action">
       <form action="/farms" method="POST">
         <label for="farmName">Farm Name</label>

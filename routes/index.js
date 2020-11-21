@@ -6,7 +6,11 @@ const Farm = require("../models/farm");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index");
+  Farm.find({}, function (err, farms) {
+    console.log(farms);
+    if (err) return next(err);
+    res.render("index", { farms: farms });
+  });
 });
 
 // Google OAuth login route
