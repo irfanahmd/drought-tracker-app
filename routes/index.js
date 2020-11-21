@@ -30,16 +30,22 @@ router.get("/logout", function (req, res) {
   res.redirect("/");
 });
 
-router.post("/farms", function create(req, res, next) {
+router.post("/farms", isLoggedIn, function create(req, res, next) {
   const farm = new Farm(req.body);
   farm.user = req.user._id;
   farm
     .save()
+    .then(console.log(farm))
     .then(() => res.redirect("/"))
     .catch((err) => {
       console.err(err);
       res.redirect("/");
     });
 });
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect("/auth/google");
+}
 
 module.exports = router;
