@@ -9,7 +9,13 @@ router.get("/", function (req, res, next) {
   Farm.find({}, function (err, farms) {
     console.log(farms);
     if (err) return next(err);
-    res.render("index", { farms: farms });
+    res.render("farms/index", { farms: farms });
+  });
+});
+
+router.get("/farms/:id", function (req, res, next) {
+  Farm.findById(req.params.id).exec(function (err, farm) {
+    res.render("farms/show", { farm: farm });
   });
 });
 

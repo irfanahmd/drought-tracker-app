@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/nav') %>
+
+    <div>
+      <table>
+        <% farms.forEach(function(farm){%> <% if (user &&
+        user._id.equals(farm.user[0]._id)) { %>
+
+        <tr>
+          
+          <td><a href="/farms/<%= farm._id %>"><%=farm.farmName%></a></td>
+          <td id="icons">
+            <button class="editButton">
+              <i class="small material-icons">mode_edit</i>
+            </button>
+              <button type="submit"><a href="/farms/delete/<%= farm._id %>">
+                <i class="small material-icons">delete</i></a>
+              </button>
+            </form>
+          </td>
+        </tr>
+        <tr class="hide" id="hiddenform">
+          <td colspan="2">
+            <form action="/farms/<%= farm._id %>" method="POST">
+              <input type="text" name="farmName" value="<%=farm.farmName%>" />
+              <button type="submit">Update</button>
+            </form>
+          </td>
+        </tr>
+        <% } %> <% }) %>
+      </table>
+    </div>
+
+    <div>
+    </br>
+    <button class="btn waves-effect waves-light" type="submit" name="action" id="createNewFarm"><i class="material-icons right">add</i>Create New Farm
+    </button>
+
+
+    <div class="card-action hide" id="newFarmForm">
+      <form action="/farms" method="POST">
+        <label for="farmName">Farm Name</label>
+        <input type="text" name="farmName" />
+        <button type="submit" class="btn white-text">Add Farm</button>
+      </form>
+    </div>
+
+  </body>
+</html>

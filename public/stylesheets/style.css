@@ -3,6 +3,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+a {
+  color: black;
+}
+
 .container {
   text-align: center;
   width: 300px;
