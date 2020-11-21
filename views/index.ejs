@@ -67,13 +67,15 @@
             <button class="editButton">
               <i class="small material-icons">mode_edit</i>
             </button>
-
-            <i class="small material-icons">delete</i>
+              <button type="submit"><a href="/farms/delete/<%= farm._id %>">
+                <i class="small material-icons">delete</i></a>
+              </button>
+            </form>
           </td>
         </tr>
-        <tr class="hide">
+        <tr class="hide" id="hiddenform">
           <td colspan="2">
-            <form action="/farms/<%= farm._id %>?_method=PUT" method="POST">
+            <form action="/farms/<%= farm._id %>" method="POST">
               <input type="text" name="farmName" value="<%=farm.farmName%>" />
               <button type="submit">Update</button>
             </form>
@@ -83,7 +85,13 @@
       </table>
     </div>
 
-    <div class="card-action">
+    <div>
+    </br>
+    <button class="btn waves-effect waves-light" type="submit" name="action" id="createNewFarm"><i class="material-icons right">add</i>Create New Farm
+    </button>
+
+
+    <div class="card-action hide" id="newFarmForm">
       <form action="/farms" method="POST">
         <label for="farmName">Farm Name</label>
         <input type="text" name="farmName" />

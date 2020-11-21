@@ -47,6 +47,30 @@ router.post("/farms", isLoggedIn, function create(req, res, next) {
     });
 });
 
+router.post("/farms/:id", function update(req, res) {
+  Farm.findOne({ _id: req.params.id }, function (err, f) {
+    f.farmName = req.body.farmName;
+    f.save()
+      .then(console.log(f))
+      .then(() => res.redirect("/"))
+      .catch((err) => {
+        console.err(err);
+        res.redirect("/");
+      });
+  });
+});
+
+router.get("/farms/delete/:id", function (req, res) {
+  console.log(req.params.id);
+  Farm.findByIdAndRemove(req.params.id, (err, response) => {
+    if (!err) {
+      res.redirect("/");
+    } else {
+      console.log("error");
+    }
+  });
+});
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect("/auth/google");
