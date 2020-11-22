@@ -16,7 +16,7 @@
             <button class="editButton">
               <i class="small material-icons">mode_edit</i>
             </button>
-              <button type="submit"><a href="/farms/delete/<%= farm._id %>">
+              <button type="submit"><a href="/farms/delete/<%= farm._id %>" onclick="return confirm('are you sure?')">
                 <i class="small material-icons">delete</i></a>
               </button>
             </form>
@@ -24,9 +24,14 @@
         </tr>
         <tr class="hide" id="hiddenform">
           <td colspan="2">
-            <form action="/farms/<%= farm._id %>" method="POST">
+            <form action="/farms/<%= farm._id %>" method="POST" name = "formUpdate">
+              <label for="farmName">Farm Name</label>
               <input type="text" name="farmName" value="<%=farm.farmName%>" />
-              <button type="submit">Update</button>
+              <label for="lat">Latitude</label>
+              <input type="text" name="lat" value="<%=farm.lat%>" />
+              <label for="lat">Longitude</label>
+              <input type="text" name="lon" value="<%=farm.lon%>" />
+              <button type="submit" class="btn white-text" onclick="return valUpdate(this.form)">Update</button>
             </form>
           </td>
         </tr>
@@ -41,12 +46,20 @@
 
 
     <div class="card-action hide" id="newFarmForm">
-      <form action="/farms" method="POST">
+      <form action="/farms" method="POST" onsubmit= "return validate()" name="formNew">
         <label for="farmName">Farm Name</label>
         <input type="text" name="farmName" />
+        <label for="lat">Latitude</label>
+        <input type="text" name="lat" />
+        <label for="lon">Longitude</label>
+        <input type="text" name="lon" />
         <button type="submit" class="btn white-text">Add Farm</button>
       </form>
     </div>
+
+    <script>
+      
+    </script>
 
   </body>
 </html>

@@ -20,3 +20,60 @@ for (var i = 0; i < editBtn.length; i++) {
     updateForm[index].classList.toggle("hide");
   });
 }
+
+//form validation
+function validate() {
+  if (document.formNew.farmName.value == "") {
+    alert("Farm Name Required");
+    document.formNew.farmName.focus();
+    return false;
+  }
+  if (
+    document.formNew.lat.value > 90 ||
+    document.formNew.lat.value < -90 ||
+    document.formNew.lat.value == "" ||
+    isNaN(document.formNew.lat.value)
+  ) {
+    alert("Latidude between -90 to +90");
+    document.formNew.lat.focus();
+    return false;
+  }
+  if (
+    document.formNew.lon.value > 180 ||
+    document.formNew.lon.value < -180 ||
+    document.formNew.lon.value == "" ||
+    isNaN(document.formNew.lon.value)
+  ) {
+    alert("Longitude between -180 to +180");
+    document.formNew.lon.focus();
+    return false;
+  }
+}
+
+function valUpdate(f) {
+  if (f.farmName.value == "") {
+    alert("Farm Name Required");
+    f.farmName.focus();
+    return false;
+  }
+  if (
+    f.lat.value > 90 ||
+    f.lat.value < -90 ||
+    f.lat.value == "" ||
+    isNaN(f.lat.value)
+  ) {
+    alert("Latidude between -90 to +90");
+    f.lat.focus();
+    return false;
+  }
+  if (
+    f.lon.value > 180 ||
+    f.lon.value < -180 ||
+    f.lon.value == "" ||
+    isNaN(f.lon.value)
+  ) {
+    alert("Longitude between -180 to +180");
+    f.lon.focus();
+    return false;
+  }
+}

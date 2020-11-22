@@ -1,13 +1,16 @@
 var router = require("express").Router();
+const request = require("request");
 
 const passport = require("passport");
 const User = require("../models/user");
 const Farm = require("../models/farm");
 
+const nasaAPI =
+  "https://power.larc.nasa.gov/cgi-bin/v1/DataAccess.py?&request=execute&identifier=SinglePoint&parameters=PRECTOT&startDate=20150101&endDate=20200305&userCommunity=SSE&tempAverage=DAILY&outputList=JSON,ASCII&lat=-34.0593&lon=-62.2404";
+
 /* GET home page. */
 router.get("/", function (req, res, next) {
   Farm.find({}, function (err, farms) {
-    console.log(farms);
     if (err) return next(err);
     res.render("farms/index", { farms: farms });
   });
@@ -15,7 +18,9 @@ router.get("/", function (req, res, next) {
 
 router.get("/farms/:id", function (req, res, next) {
   Farm.findById(req.params.id).exec(function (err, farm) {
-    res.render("farms/show", { farm: farm });
+    request(nasaAPI, function (err, response, body) {
+      res.render("farms/show", { farm: farm, body });
+    });
   });
 });
 
@@ -42,6 +47,7 @@ router.get("/logout", function (req, res) {
 
 router.post("/farms", isLoggedIn, function create(req, res, next) {
   const farm = new Farm(req.body);
+  console.log(req.body);
   farm.user = req.user._id;
   farm
     .save()
@@ -56,6 +62,8 @@ router.post("/farms", isLoggedIn, function create(req, res, next) {
 router.post("/farms/:id", function update(req, res) {
   Farm.findOne({ _id: req.params.id }, function (err, f) {
     f.farmName = req.body.farmName;
+    f.lat = req.body.lat;
+    f.lon = req.body.lon;
     f.save()
       .then(console.log(f))
       .then(() => res.redirect("/"))
