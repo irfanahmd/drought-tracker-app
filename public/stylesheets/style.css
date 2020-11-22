@@ -21,3 +21,8 @@ a {
 .hide {
   display: hide;
 }
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+}

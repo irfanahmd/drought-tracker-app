@@ -4,11 +4,20 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 let editBtn = document.querySelectorAll(".editButton");
+let cancelBtn = document.querySelector("#cancelButton");
+
+let latInput = document.querySelector("#latnew");
+
 let updateForm = document.querySelectorAll("#hiddenform");
 let createNew = document.querySelectorAll("#createNewFarm");
 let newForm = document.querySelectorAll("#newFarmForm");
 
 createNew[0].addEventListener("click", function () {
+  newForm[0].classList.toggle("hide");
+  createNew[0].classList.toggle("hide");
+});
+
+cancelBtn.addEventListener("click", function () {
   newForm[0].classList.toggle("hide");
   createNew[0].classList.toggle("hide");
 });
@@ -24,7 +33,7 @@ for (var i = 0; i < editBtn.length; i++) {
 //form validation
 function validate() {
   if (document.formNew.farmName.value == "") {
-    alert("Farm Name Required");
+    swal("Oops", "Farm Name Required", "error");
     document.formNew.farmName.focus();
     return false;
   }
@@ -34,7 +43,7 @@ function validate() {
     document.formNew.lat.value == "" ||
     isNaN(document.formNew.lat.value)
   ) {
-    alert("Latidude between -90 to +90");
+    swal("Oops", "Latidude between -90 to +90", "error");
     document.formNew.lat.focus();
     return false;
   }
@@ -44,7 +53,7 @@ function validate() {
     document.formNew.lon.value == "" ||
     isNaN(document.formNew.lon.value)
   ) {
-    alert("Longitude between -180 to +180");
+    swal("Oops", "Longitude between -180 to +180", "error");
     document.formNew.lon.focus();
     return false;
   }
@@ -52,7 +61,7 @@ function validate() {
 
 function valUpdate(f) {
   if (f.farmName.value == "") {
-    alert("Farm Name Required");
+    swal("Oops", "Farm Name Required", "error");
     f.farmName.focus();
     return false;
   }
@@ -62,7 +71,7 @@ function valUpdate(f) {
     f.lat.value == "" ||
     isNaN(f.lat.value)
   ) {
-    alert("Latidude between -90 to +90");
+    swal("Oops", "Latidude between -90 to +90", "error");
     f.lat.focus();
     return false;
   }
@@ -72,7 +81,7 @@ function valUpdate(f) {
     f.lon.value == "" ||
     isNaN(f.lon.value)
   ) {
-    alert("Longitude between -180 to +180");
+    swal("Oops", "Longitude between -180 to +180", "error");
     f.lon.focus();
     return false;
   }

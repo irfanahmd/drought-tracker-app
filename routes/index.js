@@ -49,6 +49,8 @@ router.post("/farms", isLoggedIn, function create(req, res, next) {
   const farm = new Farm(req.body);
   console.log(req.body);
   farm.user = req.user._id;
+  farm.lat = Number(req.body.lat).toFixed(4);
+  farm.lon = Number(req.body.lat).toFixed(4);
   farm
     .save()
     .then(console.log(farm))
@@ -62,8 +64,8 @@ router.post("/farms", isLoggedIn, function create(req, res, next) {
 router.post("/farms/:id", function update(req, res) {
   Farm.findOne({ _id: req.params.id }, function (err, f) {
     f.farmName = req.body.farmName;
-    f.lat = req.body.lat;
-    f.lon = req.body.lon;
+    f.lat = Number(req.body.lat).toFixed(4);
+    f.lon = Number(req.body.lon).toFixed(4);
     f.save()
       .then(console.log(f))
       .then(() => res.redirect("/"))

@@ -16,10 +16,33 @@
             <button class="editButton">
               <i class="small material-icons">mode_edit</i>
             </button>
-              <button type="submit"><a href="/farms/delete/<%= farm._id %>" onclick="return confirm('are you sure?')">
-                <i class="small material-icons">delete</i></a>
-              </button>
-            </form>
+            <button type="submit"><a href='javascript:
+              swal({
+              title: "Are you sure?",
+              text: "Once deleted, you will not be able to recover this farm",
+              icon: "warning",
+              buttons: true,
+              dangerMode: "true",
+              })
+              .then((willDelete) => {
+              if (willDelete) {
+              swal({ title: "The farm has been deleted",
+              icon: "info"}).then(okay => {
+              if (okay) {
+              window.location.href = "/farms/delete/<%= farm._id %>";
+              }
+              });
+              
+              } else {
+              swal({
+              title: "Farm not deleted",
+               icon: "info",
+              
+              });
+              }
+              });' onclick="return confirmation('are you sure?')">
+              <i class="small material-icons">delete</i></a>
+            </button>
           </td>
         </tr>
         <tr class="hide" id="hiddenform">
@@ -49,10 +72,11 @@
       <form action="/farms" method="POST" onsubmit= "return validate()" name="formNew">
         <label for="farmName">Farm Name</label>
         <input type="text" name="farmName" />
-        <label for="lat">Latitude</label>
-        <input type="text" name="lat" />
+        <label for="lat" >Latitude</label>
+        <input type="text" name="lat" id="latnew"/>
         <label for="lon">Longitude</label>
         <input type="text" name="lon" />
+        <input id = "cancelButton" type="button" class="btn white-text grey" value="cancel" />
         <button type="submit" class="btn white-text">Add Farm</button>
       </form>
     </div>
