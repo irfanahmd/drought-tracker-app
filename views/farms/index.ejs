@@ -20,9 +20,7 @@
               swal({
               title: "Are you sure?",
               text: "Once deleted, you will not be able to recover this farm",
-              icon: "warning",
               buttons: true,
-              dangerMode: "true",
               })
               .then((willDelete) => {
               if (willDelete) {
@@ -36,8 +34,6 @@
               } else {
               swal({
               title: "Farm not deleted",
-               icon: "info",
-              
               });
               }
               });' onclick="return confirmation('are you sure?')">
@@ -48,12 +44,18 @@
         <tr class="hide" id="hiddenform">
           <td colspan="2">
             <form action="/farms/<%= farm._id %>" method="POST" name = "formUpdate">
+              <div class="input-field">
               <label for="farmName">Farm Name</label>
               <input type="text" name="farmName" value="<%=farm.farmName%>" />
+            </div>
+            <div class="input-field">
               <label for="lat">Latitude</label>
               <input type="text" name="lat" value="<%=farm.lat%>" />
+            </div>
+            <div class="input-field">
               <label for="lat">Longitude</label>
               <input type="text" name="lon" value="<%=farm.lon%>" />
+            </div>
               <button type="submit" class="btn white-text" onclick="return valUpdate(this.form)">Update</button>
             </form>
           </td>
@@ -70,12 +72,18 @@
 
     <div class="card-action hide" id="newFarmForm">
       <form action="/farms" method="POST" onsubmit= "return validate()" name="formNew">
-        <label for="farmName">Farm Name</label>
+        <div class="input-field">
+          <label for="farmName">Farm Name</label>
         <input type="text" name="farmName" />
+        </div>
+        <div class="input-field">
         <label for="lat" >Latitude</label>
         <input type="text" name="lat" id="latnew"/>
+      </div>
+      <div class="input-field">
         <label for="lon">Longitude</label>
         <input type="text" name="lon" />
+        </div>
         <input id = "cancelButton" type="button" class="btn white-text grey" value="cancel" />
         <button type="submit" class="btn white-text">Add Farm</button>
       </form>

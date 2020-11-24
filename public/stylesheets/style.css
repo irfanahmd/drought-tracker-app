@@ -1,6 +1,11 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px Futura, sans-serif;
+}
+
+button,
+input {
+  font: 14px Futura, sans-serif;
 }
 
 a {
@@ -22,7 +27,21 @@ a {
   display: hide;
 }
 
-.form-inline {
-  display: flex;
-  flex-flow: row wrap;
+.swal-text {
+  background-color: #fefae3;
+  padding: 17px;
+  border: 1px solid #f0e1a1;
+  display: block;
+  margin: 22px;
+  text-align: center;
+  color: #61534e;
+}
+
+.swal-button--confirm {
+  background-color: #26a69a;
+  color: white;
+}
+
+.swal-button--confirm:hover {
+  background-color: #00bfa5 !important;
 }

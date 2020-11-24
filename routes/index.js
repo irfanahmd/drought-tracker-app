@@ -6,7 +6,18 @@ const User = require("../models/user");
 const Farm = require("../models/farm");
 
 const nasaAPI =
-  "https://power.larc.nasa.gov/cgi-bin/v1/DataAccess.py?&request=execute&identifier=SinglePoint&parameters=PRECTOT&startDate=20150101&endDate=20200305&userCommunity=SSE&tempAverage=DAILY&outputList=JSON,ASCII&lat=-34.0593&lon=-62.2404";
+  "https://power.larc.nasa.gov/cgi-bin/v1/DataAccess.py?&request=execute&identifier=SinglePoint&parameters=PRECTOT&startDate=";
+
+today = new Date();
+var enddate =
+  today.getFullYear() + "" + (today.getMonth() + 1) + "" + today.getDate();
+var last =
+  today.getFullYear() -
+  1 +
+  "" +
+  (today.getMonth() + 1) +
+  "" +
+  (today.getDate() + 1);
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -18,9 +29,12 @@ router.get("/", function (req, res, next) {
 
 router.get("/farms/:id", function (req, res, next) {
   Farm.findById(req.params.id).exec(function (err, farm) {
-    request(nasaAPI, function (err, response, body) {
-      res.render("farms/show", { farm: farm, body });
-    });
+    request(
+      `${nasaAPI}${last}&endDate=${enddate}&userCommunity=SSE&tempAverage=DAILY&outputList=JSON&lat=${farm.lat}&lon=${farm.lon}`,
+      function (err, response, body) {
+        res.render("farms/show", { farm: farm, body });
+      }
+    );
   });
 });
 
