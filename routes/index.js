@@ -64,7 +64,7 @@ router.post("/farms", isLoggedIn, function create(req, res, next) {
   console.log(req.body);
   farm.user = req.user._id;
   farm.lat = Number(req.body.lat).toFixed(4);
-  farm.lon = Number(req.body.lat).toFixed(4);
+  farm.lon = Number(req.body.lon).toFixed(4);
   farm
     .save()
     .then(console.log(farm))

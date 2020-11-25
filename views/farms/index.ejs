@@ -24,8 +24,7 @@
               })
               .then((willDelete) => {
               if (willDelete) {
-              swal({ title: "The farm has been deleted",
-              icon: "info"}).then(okay => {
+              swal({ title: "The farm has been deleted"}).then(okay => {
               if (okay) {
               window.location.href = "/farms/delete/<%= farm._id %>";
               }
