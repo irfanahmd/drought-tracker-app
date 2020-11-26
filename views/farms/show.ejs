@@ -8,6 +8,12 @@
     <p><%= farm.lat %></p>
     <p><%= farm.lon %></p>
 
-    <p><%=body%></p>
+    <canvas id="myChart"></canvas>
+
+    <div id="getbody" data-test="<%= body %>"></div>
+    <script>
+      var test = document.getElementById("getbody").dataset.test;
+    </script>
+    <script defer src="/javascripts/chart.js"></script>
   </body>
 </html>
