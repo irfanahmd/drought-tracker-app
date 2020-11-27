@@ -3,9 +3,17 @@ body {
   font: 14px Futura, sans-serif;
 }
 
+#myChart {
+  margin: 10px;
+}
+
 button,
 input {
   font: 14px Futura, sans-serif;
+}
+
+.btn-floating {
+  text-align: center;
 }
 
 a {
@@ -44,4 +52,16 @@ a {
 
 .swal-button--confirm:hover {
   background-color: #00bfa5 !important;
+}
+
+#chartOptions {
+  text-align: center;
+}
+
+#chartOptions {
+  display: inline-flex;
+}
+
+.btn-floating {
+  margin: 5px;
 }
