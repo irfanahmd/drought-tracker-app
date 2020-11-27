@@ -8,7 +8,7 @@ const Farm = require("../models/farm");
 const nasaAPI =
   "https://power.larc.nasa.gov/cgi-bin/v1/DataAccess.py?&request=execute&identifier=SinglePoint&parameters=PRECTOT&startDate=";
 
-today = new Date(Date.now() - 4 * 24 * 60 * 60 * 1000);
+today = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
 var enddate =
   today.getFullYear() + "" + (today.getMonth() + 1) + "" + today.getDate();
 var last =

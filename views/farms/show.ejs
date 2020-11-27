@@ -8,7 +8,19 @@
     <p><%= farm.lat %></p>
     <p><%= farm.lon %></p>
 
-    <canvas id="myChart"></canvas>
+    <div style="height: 500px">
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="input-field col s12">
+      <select>
+        <option value="" disabled selected>Choose your option</option>
+        <option value="1">Week</option>
+        <option value="2">Month</option>
+        <option value="3">Year</option>
+      </select>
+      <label>Materialize Select</label>
+    </div>
 
     <div id="getbody" data-test="<%= body %>"></div>
     <script>
