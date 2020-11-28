@@ -11,13 +11,14 @@
         user._id.equals(farm.user[0]._id)) { %>
 
         <tr>
-          
           <td><a href="/farms/<%= farm._id %>"><%=farm.farmName%></a></td>
           <td id="icons">
             <button class="editButton">
               <i class="small material-icons">mode_edit</i>
             </button>
-            <button type="submit"><a href='javascript:
+            <button type="submit">
+              <a
+                href='javascript:
               swal({
               title: "Are you sure?",
               text: "Once deleted, you will not be able to recover this farm",
@@ -36,27 +37,40 @@
               title: "Farm not deleted",
               });
               }
-              });' onclick="return confirmation('are you sure?')">
-              <i class="small material-icons">delete</i></a>
+              });'
+                onclick="return confirmation('are you sure?')"
+              >
+                <i class="small material-icons">delete</i></a
+              >
             </button>
           </td>
         </tr>
         <tr class="hide" id="hiddenform">
           <td colspan="2">
-            <form action="/farms/<%= farm._id %>" method="POST" name = "formUpdate">
+            <form
+              action="/farms/<%= farm._id %>"
+              method="POST"
+              name="formUpdate"
+            >
               <div class="input-field">
-              <label for="farmName">Farm Name</label>
-              <input type="text" name="farmName" value="<%=farm.farmName%>" />
-            </div>
-            <div class="input-field">
-              <label for="lat">Latitude</label>
-              <input type="text" name="lat" value="<%=farm.lat%>" />
-            </div>
-            <div class="input-field">
-              <label for="lat">Longitude</label>
-              <input type="text" name="lon" value="<%=farm.lon%>" />
-            </div>
-              <button type="submit" class="btn white-text" onclick="return valUpdate(this.form)">Update</button>
+                <label for="farmName">Farm Name</label>
+                <input type="text" name="farmName" value="<%=farm.farmName%>" />
+              </div>
+              <div class="input-field">
+                <label for="lat">Latitude</label>
+                <input type="text" name="lat" value="<%=farm.lat%>" />
+              </div>
+              <div class="input-field">
+                <label for="lat">Longitude</label>
+                <input type="text" name="lon" value="<%=farm.lon%>" />
+              </div>
+              <button
+                type="submit"
+                class="btn white-text"
+                onclick="return valUpdate(this.form)"
+              >
+                Update
+              </button>
             </form>
           </td>
         </tr>
@@ -65,33 +79,44 @@
     </div>
 
     <div>
-    </br>
-    <button class="btn waves-effect waves-light" type="submit" name="action" id="createNewFarm"><i class="material-icons right">add</i>Create New Farm
-    </button>
+      <p></p>
+    </div>
 
+    <div id="cnf">
+      <button class="btn red" type="submit" name="action" id="createNewFarm">
+        <i class="material-icons right">add</i>Create New Farm
+      </button>
+    </div>
 
     <div class="card-action hide" id="newFarmForm">
-      <form action="/farms" method="POST" onsubmit= "return validate()" name="formNew">
+      <form
+        action="/farms"
+        method="POST"
+        onsubmit="return validate()"
+        name="formNew"
+      >
         <div class="input-field">
           <label for="farmName">Farm Name</label>
-        <input type="text" name="farmName" />
+          <input type="text" name="farmName" />
         </div>
         <div class="input-field">
-        <label for="lat" >Latitude</label>
-        <input type="text" name="lat" id="latnew"/>
-      </div>
-      <div class="input-field">
-        <label for="lon">Longitude</label>
-        <input type="text" name="lon" />
+          <label for="lat">Latitude</label>
+          <input type="text" name="lat" id="latnew" />
         </div>
-        <input id = "cancelButton" type="button" class="btn white-text grey" value="cancel" />
+        <div class="input-field">
+          <label for="lon">Longitude</label>
+          <input type="text" name="lon" />
+        </div>
+        <input
+          id="cancelButton"
+          type="button"
+          class="btn white-text grey"
+          value="cancel"
+        />
         <button type="submit" class="btn white-text">Add Farm</button>
       </form>
     </div>
 
-    <script>
-      
-    </script>
-
+    <script></script>
   </body>
 </html>
