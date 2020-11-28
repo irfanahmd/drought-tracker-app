@@ -156,7 +156,7 @@ function render(range) {
                 data.datasets[0].data[tooltipItem.index - 1]
               ).toFixed(2);
             } else {
-              temp = 0;
+              temp = data.datasets[0].data[tooltipItem.index];
             }
           },
           label: function (tooltipItem, data) {
