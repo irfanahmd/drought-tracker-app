@@ -3,6 +3,13 @@ body {
   font: 14px Futura, sans-serif;
 }
 
+html,
+body {
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 #myChart {
   margin: 10px;
   padding: 20px;
