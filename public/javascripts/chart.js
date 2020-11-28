@@ -24,7 +24,7 @@ function render(range) {
   if (initvalue === 0) {
     var i;
     for (i = 0; i < newPrecData.length; ++i) {
-      x = moment(newPrecData[365].date).subtract(1, "year");
+      initvalue = moment(newPrecData[365].date).subtract(1, "month");
       if (moment(newPrecData[i].date).isAfter(initvalue)) {
         allowed.push(newPrecData[i].date);
       }
@@ -78,6 +78,11 @@ function render(range) {
   const cumulativeSum = ((sum) => (value) => (sum += value))(0);
   let cumulativePrec = ylabel.map(cumulativeSum);
   cumulativePrec = cumulativePrec.map((a) => a.toFixed(2));
+
+  //passing to frontend
+  document.getElementById("precip").innerText = `${ylabel
+    .reduce((a, b) => a + b)
+    .toFixed(2)} mm`;
 
   document.getElementById("chartContainer").innerHTML = "&nbsp;";
   document.getElementById("chartContainer").innerHTML =
@@ -144,11 +149,21 @@ function render(range) {
         displayColors: false,
         callbacks: {
           // use label callback to return the desired label
+          afterLabel: function (tooltipItem, data) {
+            if (tooltipItem.index !== 0) {
+              temp = (
+                data.datasets[0].data[tooltipItem.index] -
+                data.datasets[0].data[tooltipItem.index - 1]
+              ).toFixed(2);
+            } else {
+              temp = 0;
+            }
+          },
           label: function (tooltipItem, data) {
             return "Total Precipitation";
           },
           footer: function (tooltipItem, data) {
-            return tooltipItem[0].yLabel + " mm";
+            return tooltipItem[0].yLabel + " mm (+" + temp + " mm)";
           },
         },
         intersect: false,
@@ -175,7 +190,7 @@ function render(range) {
               color: "rgba(0, 0, 0, 0)",
             },
             ticks: {
-              maxTicksLimit: 4,
+              maxTicksLimit: 3,
               fontFamily: "Futura",
               // Include a dollar sign in the ticks
               callback: function (value, index, values) {

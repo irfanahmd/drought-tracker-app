@@ -4,21 +4,23 @@
   <body>
     <%- include('../partials/nav') %>
 
-    <p><%= farm.farmName %></p>
+    <p><%= farm.farmName %> has</p>
+    <p id="precip"></p>
     <p><%= farm.lat %></p>
     <p><%= farm.lon %></p>
 
     <div style="height: 500px" id="chartContainer">
       <canvas id="myChart"></canvas>
     </div>
+
     <div id="chartOptions">
-      <div id="1M"><a class="btn-floating disabled">1M</a></div>
+      <div id="1M"><a class="btn-floating">1M</a></div>
 
       <div id="3M"><a class="btn-floating disabled">3M</a></div>
 
       <div id="6M"><a class="btn-floating disabled">6M</a></div>
 
-      <div id="1Y"><a class="btn-floating">1Y</a></div>
+      <div id="1Y"><a class="btn-floating disabled">1Y</a></div>
     </div>
 
     <div id="getbody" data-test="<%= body %>"></div>

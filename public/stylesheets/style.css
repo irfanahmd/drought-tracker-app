@@ -55,11 +55,9 @@ a {
 }
 
 #chartOptions {
-  text-align: center;
-}
-
-#chartOptions {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .btn-floating {
