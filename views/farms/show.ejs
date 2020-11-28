@@ -4,10 +4,14 @@
   <body>
     <%- include('../partials/nav') %>
 
-    <p><%= farm.farmName %> has</p>
-    <p id="precip"></p>
-    <p><%= farm.lat %></p>
-    <p><%= farm.lon %></p>
+    <p>
+      <%= farm.farmName %> (<%= farm.lat.toFixed(2) %>, <%= farm.lon.toFixed(2)
+      %>)
+    </p>
+    <p id="whoosh">
+      <span id="precip"></span>
+    </p>
+    <p><span id="range">past month</span></p>
 
     <div style="height: 500px" id="chartContainer">
       <canvas id="myChart"></canvas>

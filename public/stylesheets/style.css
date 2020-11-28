@@ -5,6 +5,7 @@ body {
 
 #myChart {
   margin: 10px;
+  padding: 20px;
 }
 
 button,
@@ -62,4 +63,19 @@ a {
 
 .btn-floating {
   margin: 5px;
+}
+
+p {
+  font-size: 20px;
+  text-align: center;
+}
+
+#whoosh {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
+}
+
+body {
+  padding: 0;
 }

@@ -217,6 +217,7 @@ oneMBtn.addEventListener("click", function () {
   if (oneMBtn.childNodes[0].classList.contains("disabled")) {
     oneMBtn.childNodes[0].classList.toggle("disabled");
     initvalue = moment(newPrecData[365].date).subtract(1, "month");
+    document.getElementById("range").innerText = "past month";
     render();
   } else {
   }
@@ -238,6 +239,7 @@ threeMBtn.addEventListener("click", function () {
   if (threeMBtn.childNodes[0].classList.contains("disabled")) {
     threeMBtn.childNodes[0].classList.toggle("disabled");
     initvalue = moment(newPrecData[365].date).subtract(3, "month");
+    document.getElementById("range").innerText = "past 3 months";
     render();
   } else {
   }
@@ -259,6 +261,7 @@ sixMBtn.addEventListener("click", function () {
   if (sixMBtn.childNodes[0].classList.contains("disabled")) {
     sixMBtn.childNodes[0].classList.toggle("disabled");
     initvalue = moment(newPrecData[365].date).subtract(6, "month");
+    document.getElementById("range").innerText = "past 6 months";
     render();
   } else {
   }
@@ -280,6 +283,7 @@ oneYBtn.addEventListener("click", function () {
   if (oneYBtn.childNodes[0].classList.contains("disabled")) {
     oneYBtn.childNodes[0].classList.toggle("disabled");
     initvalue = moment(newPrecData[365].date).subtract(12, "month");
+    document.getElementById("range").innerText = "past year";
     render();
   } else {
   }
