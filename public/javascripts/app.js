@@ -11,6 +11,20 @@ document.addEventListener("DOMContentLoaded", function () {
 let editBtn = document.querySelectorAll(".editButton");
 let cancelBtn = document.querySelector("#cancelButton");
 
+document.addEventListener("DOMContentLoaded", function () {
+  let matIcons = document.querySelectorAll(".material-icons");
+  if (window.innerWidth <= 700) {
+    matIcons.forEach(function (el) {
+      el.classList.add("tiny");
+      el.classList.remove("small");
+    });
+  } else {
+    matIcons.forEach(function (el) {
+      el.classList.remove("tiny");
+    });
+  }
+});
+
 let latInput = document.querySelector("#latnew");
 
 let updateForm = document.querySelectorAll("#hiddenform");
