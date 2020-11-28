@@ -9,8 +9,11 @@ The DROUGHTrac App provides farmers an easy way to track rain.
 ## Getting Started
 
 > [Launch App](https://drought-tracker.herokuapp.com/)
+
 > Login in with Google.
+
 > Create a new farm and fill in the relevant details.
+
 > Visit the farm page for an interactive rainfall chart.
 
 
