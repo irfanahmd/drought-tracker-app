@@ -9,6 +9,15 @@ body {
   touch-action: none;
 }
 
+.brand-logo {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+i {
+  vertical-align: middle;
+}
+
 button,
 input {
   font: 14px Futura, sans-serif;

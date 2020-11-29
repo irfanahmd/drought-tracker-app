@@ -11,7 +11,11 @@
         user._id.equals(farm.user[0]._id)) { %>
 
         <tr>
-          <td><a href="/farms/<%= farm._id %>"><%=farm.farmName%></a></td>
+          <td>
+            <a id="test" href="/farms/<%= farm._id %>">
+              &nbsp;&nbsp; <%=farm.farmName%></a
+            >
+          </td>
           <td id="icons">
             <button class="editButton">
               <i class="small material-icons">mode_edit</i>
@@ -43,6 +47,7 @@
                 <i class="small material-icons">delete</i></a
               >
             </button>
+            &nbsp;&nbsp;
           </td>
         </tr>
         <tr class="hide" id="hiddenform">
