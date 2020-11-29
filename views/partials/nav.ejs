@@ -1,18 +1,18 @@
-<nav>
-  <div class="nav-wrapper red">
-    <a href="/" class="brand-logo">DROUGHTrac</a>
+<nav class="z-depth-1">
+  <div class="nav-wrapper white">
+    <a href="/" class="brand-logo black-text">DROUGHTrac</a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-      ><i class="material-icons">menu</i></a
+      ><i class="material-icons black-text">menu</i></a
     >
     <ul class="right hide-on-med-and-down">
       <li>
         <% if (user) { %>
-        <a href="/logout"
+        <a href="/logout" class="black-text"
           ><i class="material-icons left">trending_flat</i>Log Out <%= user.name
           %></a
         >
         <% } else { %>
-        <a href="/auth/google"
+        <a href="/auth/google" class="black-text"
           ><i class="material-icons left">vpn_key</i>Login with Google</a
         >
         <% } %>
