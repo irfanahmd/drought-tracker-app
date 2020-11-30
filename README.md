@@ -1,3 +1,7 @@
+<p align="center">
+<img width="366" alt="Screen Shot 2020-11-28 at 4 45 01 PM" src="https://github.com/vmroycroft/waterlog/raw/master/src/assets/images/rain-tracker-logo.svg">
+</p>
+
 # DROUGHTrac App
 
 The DROUGHTrac App provides farmers an easy way to track rain. 
