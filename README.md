@@ -30,7 +30,7 @@ The DROUGHTrac App provides farmers an easy way to track rain. It is an app crea
 
 > Login details if you don't want to sign up:
 
->> Email: supertester1600@gmail.com
+>> Email: superuser1600@gmail.com
 
 >> Password: ch1k-f1l-a
 
